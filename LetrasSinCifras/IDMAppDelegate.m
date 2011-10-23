@@ -7,6 +7,7 @@
 //
 
 #import "IDMAppDelegate.h"
+#import "BoardVC.h"
 
 @implementation IDMAppDelegate
 
@@ -16,7 +17,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    BoardVC *rootVC = [[BoardVC alloc] init];
+    [self.window setRootViewController:rootVC];
     [self.window makeKeyAndVisible];
     return YES;
 }

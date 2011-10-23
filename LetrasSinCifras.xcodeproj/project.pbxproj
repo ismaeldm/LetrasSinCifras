@@ -13,6 +13,8 @@
 		35A8D41E1453FEA7007258D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35A8D41C1453FEA7007258D8 /* InfoPlist.strings */; };
 		35A8D4201453FEA7007258D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A8D41F1453FEA7007258D8 /* main.m */; };
 		35A8D4241453FEA7007258D8 /* IDMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A8D4231453FEA7007258D8 /* IDMAppDelegate.m */; };
+		35A8D42D1453FEB9007258D8 /* BoardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A8D42B1453FEB9007258D8 /* BoardVC.m */; };
+		35A8D42E1453FEB9007258D8 /* BoardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A8D42C1453FEB9007258D8 /* BoardVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		35A8D4131453FEA7007258D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35A8D4151453FEA7007258D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		35A8D4171453FEA7007258D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		35A8D41B1453FEA7007258D8 /* LetrasSinCifras-Info.plist */ = {isa = PBXFileReference; path = "LetrasSinCifras-Info.plist"; sourceTree = "<group>"; };
+		35A8D41B1453FEA7007258D8 /* LetrasSinCifras-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LetrasSinCifras-Info.plist"; sourceTree = "<group>"; };
 		35A8D41D1453FEA7007258D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		35A8D41F1453FEA7007258D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		35A8D4211453FEA7007258D8 /* LetrasSinCifras-Prefix.pch */ = {isa = PBXFileReference; path = "LetrasSinCifras-Prefix.pch"; sourceTree = "<group>"; };
-		35A8D4221453FEA7007258D8 /* IDMAppDelegate.h */ = {isa = PBXFileReference; path = IDMAppDelegate.h; sourceTree = "<group>"; };
+		35A8D4211453FEA7007258D8 /* LetrasSinCifras-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LetrasSinCifras-Prefix.pch"; sourceTree = "<group>"; };
+		35A8D4221453FEA7007258D8 /* IDMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDMAppDelegate.h; sourceTree = "<group>"; };
 		35A8D4231453FEA7007258D8 /* IDMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDMAppDelegate.m; sourceTree = "<group>"; };
+		35A8D42A1453FEB9007258D8 /* BoardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardVC.h; sourceTree = "<group>"; };
+		35A8D42B1453FEB9007258D8 /* BoardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardVC.m; sourceTree = "<group>"; };
+		35A8D42C1453FEB9007258D8 /* BoardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,9 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3520056214541458005688D7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		35A8D4041453FEA7007258D8 = {
 			isa = PBXGroup;
 			children = (
+				3520056214541458005688D7 /* Images */,
 				35A8D4191453FEA7007258D8 /* LetrasSinCifras */,
 				35A8D4121453FEA7007258D8 /* Frameworks */,
 				35A8D4101453FEA7007258D8 /* Products */,
@@ -74,6 +87,9 @@
 			children = (
 				35A8D4221453FEA7007258D8 /* IDMAppDelegate.h */,
 				35A8D4231453FEA7007258D8 /* IDMAppDelegate.m */,
+				35A8D42A1453FEB9007258D8 /* BoardVC.h */,
+				35A8D42B1453FEB9007258D8 /* BoardVC.m */,
+				35A8D42C1453FEB9007258D8 /* BoardVC.xib */,
 				35A8D41A1453FEA7007258D8 /* Supporting Files */,
 			);
 			path = LetrasSinCifras;
@@ -141,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A8D41E1453FEA7007258D8 /* InfoPlist.strings in Resources */,
+				35A8D42E1453FEB9007258D8 /* BoardVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +170,7 @@
 			files = (
 				35A8D4201453FEA7007258D8 /* main.m in Sources */,
 				35A8D4241453FEA7007258D8 /* IDMAppDelegate.m in Sources */,
+				35A8D42D1453FEB9007258D8 /* BoardVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +274,7 @@
 				35A8D4291453FEA7007258D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
