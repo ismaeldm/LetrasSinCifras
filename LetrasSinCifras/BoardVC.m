@@ -104,8 +104,18 @@ float restSeconds = 60.0;
 - (IBAction)endMatch:(id)sender {
     self.answer = answerLabel.text;
     [self enableButtonsForPlay:NO];
-    NSString *message = [NSString stringWithFormat:@"Remained %.0f seconds", restSeconds];
-    UIAlertView *endAlert = [[UIAlertView alloc] initWithTitle:self.answer message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *endAlert;
+    NSString *message;
+    
+    if (nil == self.answer || [self.answer isEqualToString:@""])
+    {
+        message = @"Please try again";
+    }
+    else {
+        message = [NSString stringWithFormat:@"Remained %.0f seconds", restSeconds];
+    }
+
+    endAlert = [[UIAlertView alloc] initWithTitle:self.answer message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [endAlert show];
     
 }
