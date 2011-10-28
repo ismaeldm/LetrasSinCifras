@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		358CC3DC145B313700FE9956 /* icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 358CC3DB145B313700FE9956 /* icon512.png */; };
+		358CC3F7145B3E7700FE9956 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358CC3F6145B3E7700FE9956 /* GameKit.framework */; };
 		35A8D4141453FEA7007258D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4131453FEA7007258D8 /* UIKit.framework */; };
 		35A8D4161453FEA7007258D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4151453FEA7007258D8 /* Foundation.framework */; };
 		35A8D4181453FEA7007258D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4171453FEA7007258D8 /* CoreGraphics.framework */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		358CC3DB145B313700FE9956 /* icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon512.png; sourceTree = "<group>"; };
+		358CC3F6145B3E7700FE9956 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		35A8D40F1453FEA7007258D8 /* LetrasSinCifras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetrasSinCifras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A8D4131453FEA7007258D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35A8D4151453FEA7007258D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358CC3F7145B3E7700FE9956 /* GameKit.framework in Frameworks */,
 				35A8D4141453FEA7007258D8 /* UIKit.framework in Frameworks */,
 				35A8D4161453FEA7007258D8 /* Foundation.framework in Frameworks */,
 				35A8D4181453FEA7007258D8 /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +81,7 @@
 		35A8D4121453FEA7007258D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				358CC3F6145B3E7700FE9956 /* GameKit.framework */,
 				35A8D4131453FEA7007258D8 /* UIKit.framework */,
 				35A8D4151453FEA7007258D8 /* Foundation.framework */,
 				35A8D4171453FEA7007258D8 /* CoreGraphics.framework */,

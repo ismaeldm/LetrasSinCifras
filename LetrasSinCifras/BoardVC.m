@@ -8,6 +8,7 @@
 
 // imports
 #import "BoardVC.h"
+#import <GameKit/GameKit.h>
 
 @implementation BoardVC
 @synthesize answerLabel;
@@ -30,8 +31,39 @@ NSString *consonants = @"BCDFGHJKLMNÑPQRSTVWXYZ";
 int currentPosition = 0;
 NSTimer *theTimer;
 float restSeconds = 60.0;
+BOOL isGCSupported = NO;
 
 #pragma mark - Gamecenter
+
+-(BOOL)isGameCenterSupported
+{
+    Class gcClass = NSClassFromString(@"GKLocalPlayer");
+    
+    BOOL osVersionSupported = ([[[UIDevice currentDevice] systemVersion] 
+                                compare:@"4.1" options:NSNumericSearch] != NSOrderedAscending);
+    return (gcClass && osVersionSupported);
+}
+
+-(void)authenticateLocalPlayer
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    if ([localPlayer isAuthenticated] == YES)
+    {
+        NSLog(@"The local player has already authenticated.");
+        return;
+    }
+    
+    [localPlayer authenticateWithCompletionHandler:^(NSError *error){
+        if (error == nil)
+        {
+            NSLog(@"Successfully authenticated the local player.");
+        }
+        else {
+            NSLog(@"Failed to authenticate the player with error = %@", error);
+        }
+    }];
+}
+
 
 #pragma mark - Play methods
 
@@ -171,6 +203,12 @@ float restSeconds = 60.0;
                     letter2,letter3,letter4,letter5,
                     letter6,letter7,letter8,letter9,nil];
     [self enableButtonsForPlay:NO];
+    isGCSupported = [self isGameCenterSupported];
+        if (isGCSupported)
+    {
+        [self authenticateLocalPlayer];
+    }
+
 }
 
 - (void)viewDidUnload
