@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+// imports
 #import "BoardVC.h"
 
 @implementation BoardVC
@@ -21,28 +22,18 @@
 @synthesize letter1,letter2,letter3,letter4,letter5,letter6,letter7,letter8,letter9;
 @synthesize  answer;
 
+// constants
 NSString *vowels = @"AEIOU";
 NSString *consonants = @"BCDFGHJKLMNÑPQRSTVWXYZ";
 
+// private properties
 int currentPosition = 0;
 NSTimer *theTimer;
 float restSeconds = 60.0;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
+#pragma mark - Gamecenter
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
+#pragma mark - Play methods
 
 -(void)enableButtonsForPlay:(BOOL)enable
 {
@@ -57,9 +48,7 @@ float restSeconds = 60.0;
         vowelButton.enabled = NO;
         consonantButton.enabled = NO;
         answerLabel.text = @"";
-        
-        //answer = @"";
-        
+                
         if (![theTimer isValid])
         {
             restSeconds = 60.0;
@@ -78,7 +67,6 @@ float restSeconds = 60.0;
         vowelButton.enabled = YES;
         consonantButton.enabled = YES;
         answerLabel.text = @"";
-        //answer = @"";
         currentPosition = 0;
         restTimeLabel.text = @"";
         [restTimeProgressView setProgress:0.0];
@@ -88,55 +76,10 @@ float restSeconds = 60.0;
         }
     }
 }
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.letters = [NSArray arrayWithObjects:letter1, 
-                    letter2,letter3,letter4,letter5,
-                    letter6,letter7,letter8,letter9,nil];
-    [self enableButtonsForPlay:NO];
-//    theTimer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updateRestTime:) userInfo:nil repeats:YES];
-    
-
-
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [self setAnswerLabel:nil];
-    [self setLetter1:nil];
-    [self setLetter2:nil];
-    [self setLetter3:nil];
-    [self setLetter4:nil];
-    [self setLetter5:nil];
-    [self setLetter6:nil];
-    [self setLetter7:nil];
-    [self setLetter8:nil];
-    [self setLetter9:nil];
-    [self setVowelButton:nil];
-    [self setConsonantButton:nil];
-    [self setDoneButton:nil];
-    [self setClearButton:nil];
-    [self setRestTimeProgressView:nil];
-    [self setRestTimeLabel:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 -(void)setButtonLetter:(NSString *)theLetter
 {
     UIButton *aButton = [letters objectAtIndex:currentPosition];
-    //aButton.titleLabel.text = vowel;
     [aButton setTitle:theLetter forState:UIControlStateNormal];
     currentPosition++;
     if (currentPosition >= 9)
@@ -155,7 +98,7 @@ float restSeconds = 60.0;
     NSUInteger randomConsonant = arc4random() % 22;
     NSString *consonant = [consonants substringWithRange:NSMakeRange(randomConsonant, 1)];
     [self setButtonLetter:consonant];
-
+    
 }
 
 - (IBAction)endMatch:(id)sender {
@@ -178,10 +121,6 @@ float restSeconds = 60.0;
     [self enableButtonsForPlay:YES];
 }
 
-//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-//{
-//    [self enableButtonsForPlay:NO];
-//}
 
 -(void)updateRestTime:(NSTimer *)aTimer
 {
@@ -198,4 +137,56 @@ float restSeconds = 60.0;
     }
     
 }
+
+#pragma mark - View lifecycle
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.letters = [NSArray arrayWithObjects:letter1, 
+                    letter2,letter3,letter4,letter5,
+                    letter6,letter7,letter8,letter9,nil];
+    [self enableButtonsForPlay:NO];
+}
+
+- (void)viewDidUnload
+{
+    [self setAnswerLabel:nil];
+    [self setLetter1:nil];
+    [self setLetter2:nil];
+    [self setLetter3:nil];
+    [self setLetter4:nil];
+    [self setLetter5:nil];
+    [self setLetter6:nil];
+    [self setLetter7:nil];
+    [self setLetter8:nil];
+    [self setLetter9:nil];
+    [self setVowelButton:nil];
+    [self setConsonantButton:nil];
+    [self setDoneButton:nil];
+    [self setClearButton:nil];
+    [self setRestTimeProgressView:nil];
+    [self setRestTimeLabel:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 @end

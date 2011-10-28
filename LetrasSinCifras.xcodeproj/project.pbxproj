@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		358CC3DC145B313700FE9956 /* icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 358CC3DB145B313700FE9956 /* icon512.png */; };
 		35A8D4141453FEA7007258D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4131453FEA7007258D8 /* UIKit.framework */; };
 		35A8D4161453FEA7007258D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4151453FEA7007258D8 /* Foundation.framework */; };
 		35A8D4181453FEA7007258D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A8D4171453FEA7007258D8 /* CoreGraphics.framework */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		358CC3DB145B313700FE9956 /* icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon512.png; sourceTree = "<group>"; };
 		35A8D40F1453FEA7007258D8 /* LetrasSinCifras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetrasSinCifras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A8D4131453FEA7007258D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35A8D4151453FEA7007258D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +52,7 @@
 		3520056214541458005688D7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				358CC3DB145B313700FE9956 /* icon512.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			files = (
 				35A8D41E1453FEA7007258D8 /* InfoPlist.strings in Resources */,
 				35A8D42E1453FEB9007258D8 /* BoardVC.xib in Resources */,
+				358CC3DC145B313700FE9956 /* icon512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
