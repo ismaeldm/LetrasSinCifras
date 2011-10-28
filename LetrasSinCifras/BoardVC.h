@@ -30,6 +30,7 @@
 
 @property (strong, nonatomic) NSArray *letters;
 @property (strong, nonatomic) NSString *answer;
+@property (strong, nonatomic) NSMutableDictionary *achievementsDictionary;
 
 - (IBAction)addVowel:(id)sender;
 - (IBAction)addConsonant:(id)sender;

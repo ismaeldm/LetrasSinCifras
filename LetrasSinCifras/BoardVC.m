@@ -22,6 +22,7 @@
 @synthesize letters;
 @synthesize letter1,letter2,letter3,letter4,letter5,letter6,letter7,letter8,letter9;
 @synthesize  answer;
+@synthesize achievementsDictionary;
 
 // constants
 NSString *vowels = @"AEIOU";
@@ -98,6 +99,53 @@ BOOL isGCSupported = NO;
     return result;
 }
 
+
+
+
+- (void) loadAchievements
+{
+    [GKAchievement loadAchievementsWithCompletionHandler:^(NSArray *achievements, NSError *error)
+     {
+         if (error == nil)
+         {
+             for (GKAchievement* achievement in achievements)
+                 [achievementsDictionary setObject: achievement forKey:
+                  achievement.identifier];
+         }
+     }]; 
+}
+
+- (GKAchievement*) getAchievementForIdentifier: (NSString*) identifier
+{
+    GKAchievement *achievement = [achievementsDictionary objectForKey:identifier]; 
+    if (achievement == nil)
+    {
+        achievement = [[GKAchievement alloc] initWithIdentifier:identifier];
+        [achievementsDictionary setObject:achievement
+                                   forKey:achievement.identifier];
+    }
+    return achievement;
+}
+
+-(void) reportAchievementWithID:(NSString *)achivementID percentageCompleted:(double)percentageCompleted
+{        
+    GKAchievement *achievement = [self getAchievementForIdentifier:achivementID];
+    if (achievement)
+    {
+        achievement.percentComplete = achievement.percentComplete + percentageCompleted;
+        NSLog(@"Reporting the achievement...");
+        [achievement reportAchievementWithCompletionHandler:^(NSError *error){
+            if (error == nil)
+            {
+                NSLog(@"Successfully reported the achievement.");
+            } 
+            else 
+            {
+                NSLog(@"Failed to report the achievement. %@", error);
+            } 
+        }];
+    }
+}
 
 #pragma mark - Play methods
 
@@ -186,6 +234,10 @@ BOOL isGCSupported = NO;
     if (self.answer.length > 0)
     {
         [self reportScore:self.answer.length toLeaderboard:@"LSC.PalabraMasLarga"];
+        if (self.answer.length >= 6)
+        {
+            [self reportAchievementWithID:@"LSC.SeisLetras" percentageCompleted:20.0];
+        }
     }
 
     
@@ -247,6 +299,7 @@ BOOL isGCSupported = NO;
     {
         [self authenticateLocalPlayer];
     }
+    achievementsDictionary = [[NSMutableDictionary alloc] init];
 
 }
 
