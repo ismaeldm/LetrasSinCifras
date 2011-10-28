@@ -64,6 +64,40 @@ BOOL isGCSupported = NO;
     }];
 }
 
+- (BOOL) reportScore:(NSUInteger)scorevalue toLeaderboard:(NSString *)leaderboard
+{
+    __block BOOL result = NO;
+    
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    if ([localPlayer isAuthenticated] == NO)
+    {
+        NSLog(@"You must authenticate the local player first.");
+        return NO; 
+    }
+    
+    if ([leaderboard length] == 0)
+    { 
+        NSLog(@"Leaderboard identifier is empty."); 
+        return NO;
+    }
+    
+    GKScore *score = [[GKScore alloc] initWithCategory:leaderboard];
+    score.value = (int64_t)scorevalue; 
+    NSLog(@"Attempting to report the score...");
+    [score reportScoreWithCompletionHandler:^(NSError *error) {
+        if (error == nil)
+        {   
+            NSLog(@"Succeeded in reporting the score."); result = YES;
+        } 
+        else 
+        {
+            NSLog(@"Failed to report the score. Error = %@", error);
+        } 
+    }];
+    return result;
+}
+
 
 #pragma mark - Play methods
 
@@ -149,6 +183,11 @@ BOOL isGCSupported = NO;
 
     endAlert = [[UIAlertView alloc] initWithTitle:self.answer message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [endAlert show];
+    if (self.answer.length > 0)
+    {
+        [self reportScore:self.answer.length toLeaderboard:@"LSC.PalabraMasLarga"];
+    }
+
     
 }
 
