@@ -10,7 +10,7 @@
 
 @interface BoardVC : UIViewController <UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *answerLabel;
+@property (weak, nonatomic) IBOutlet UITextField *answerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *vowelButton;
 @property (weak, nonatomic) IBOutlet UIButton *consonantButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;

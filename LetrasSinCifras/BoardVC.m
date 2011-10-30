@@ -161,7 +161,7 @@ BOOL isGCSupported = NO;
         clearButton.enabled = YES;
         vowelButton.enabled = NO;
         consonantButton.enabled = NO;
-        answerLabel.text = @"";
+        answerLabel.text = @"-";
                 
         if (![theTimer isValid])
         {
@@ -180,7 +180,7 @@ BOOL isGCSupported = NO;
         clearButton.enabled = NO;
         vowelButton.enabled = YES;
         consonantButton.enabled = YES;
-        answerLabel.text = @"";
+        answerLabel.text = @"-";
         currentPosition = 0;
         restTimeLabel.text = @"";
         [restTimeProgressView setProgress:0.0];
@@ -245,6 +245,10 @@ BOOL isGCSupported = NO;
 
 - (IBAction)useLetter:(id)sender {
     NSString *selectedLetter = [[(UIButton *)sender titleLabel] text];
+    if ([@"-" isEqualToString:answerLabel.text])
+    {
+        answerLabel.text = @"";
+    }
     answerLabel.text = [answerLabel.text stringByAppendingString:selectedLetter];
     [(UIButton *)sender setHidden:YES];
     
